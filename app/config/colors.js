@@ -13,6 +13,8 @@
 
   export const black ='#000';
 
+  export const danger = '#ED2939'
+
   export const lightGray = '#dfdede';
 
   export const gray = '#828282'

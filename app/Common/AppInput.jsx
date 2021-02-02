@@ -1,6 +1,6 @@
 import React from 'react'
 import { StyleSheet, TextInput, View } from 'react-native'
-import { black, lightGray, white } from '../config/colors'
+import { black, lightGray } from '../config/colors'
 import { MaterialIcons } from '@expo/vector-icons';
 
 
@@ -49,7 +49,7 @@ const styles = StyleSheet.create({
         width: 'auto',
         height:'100%',
         marginLeft:10,
-        color: white,
+        color: black,
         fontSize:17,
         flex:1,
     }

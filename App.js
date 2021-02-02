@@ -4,6 +4,8 @@ import { StyleSheet, Text, View } from 'react-native';
 import AppButton from './app/Common/AppButton';
 import AppInput from './app/Common/AppInput';
 import AppText from './app/Common/AppText';
+import LoginScreen from './app/Screens/LoginScreen';
+import RegisterScreen from './app/Screens/RegisterScreen';
 import WelcomeScreen from './app/Screens/WelcomeScreen';
 
 export default function App() {
@@ -16,7 +18,7 @@ export default function App() {
     // </View>
     <View>
 
-      <WelcomeScreen />
+      <RegisterScreen />
     </View>
   );
 }

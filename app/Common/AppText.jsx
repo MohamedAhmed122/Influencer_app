@@ -1,18 +1,17 @@
 import React from 'react'
-import { StyleSheet, View } from 'react-native'
-import { lightGray } from '../config/colors'
+import { Platform, StyleSheet, Text, } from 'react-native'
 
-export default function AppSeparator() {
+const AppText = ({children, style}) => {
     return (
-        <View style={styles.separator}></View>
+        <Text style={[styles.text, style]}>{children}</Text>
     )
 }
 
+export default AppText
+
 const styles = StyleSheet.create({
-    separator:{
-        width: '100%', 
-        height: 2,
-        backgroundColor: lightGray,
-        
+    text:{
+        fontSize: 18,
+        fontFamily: Platform.OS === 'android'? 'Roboto' : 'Avenir'
     }
 })

@@ -1,10 +1,11 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 
-import { StyleSheet } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 
 import AuthNavigation from './app/Navigation/AuthNavigation';
+import InfluencerScreen from './app/Screens/InfluencerScreen';
 
 export default function App() {
   return (
@@ -18,9 +19,12 @@ export default function App() {
 
     //   <RegisterScreen />
     // </View>
-    <NavigationContainer>
-      <AuthNavigation />
-    </NavigationContainer>
+    <View>
+       <InfluencerScreen />
+    </View>
+    // <NavigationContainer>
+    //   <AuthNavigation />
+    // </NavigationContainer>
 
   );
 }

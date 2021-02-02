@@ -1,5 +1,4 @@
 import React from 'react'
-import Constants from "expo-constants";
 import { StyleSheet, View, ImageBackground } from 'react-native'
 import AppButton from '../Common/AppButton'
 import { secondary } from '../config/colors';

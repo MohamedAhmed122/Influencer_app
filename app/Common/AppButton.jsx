@@ -31,8 +31,8 @@ const styles = StyleSheet.create({
     },
     smallContainer:{
         backgroundColor: primary,
-        paddingVertical: 13,
-        paddingHorizontal: 16,
+        paddingVertical: 10,
+        paddingHorizontal: 17,
         borderRadius:30,
         display:"flex",
         alignItems:'center',

@@ -1,6 +1,8 @@
 
   export const primary = '#2168A6';
 
+  export const lightBlue ='##dbeeff'
+
   export const secondary ='#F294C0';
 
   export const purple ='#2E3C8C';
@@ -13,7 +15,7 @@
 
   export const black ='#000';
 
-  export const danger = '#ED2939'
+  export const danger = '#ED2939';
 
   export const lightGray = '#dfdede';
 

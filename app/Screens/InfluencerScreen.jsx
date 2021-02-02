@@ -4,11 +4,19 @@ import Card from '../Components/Card/Card'
 import users from '../API/users'
 import { white } from '../config/colors'
 import Constants from "expo-constants";
+import AppInput from '../Common/AppInput'
+import Banner from '../Components/Banner/Banner'
 
 
 export default function InfluencerScreen() {
     return (
         <ScrollView style={styles.screen}>
+            <AppInput 
+                placeholder='Search for Influencers' 
+                icon='search' 
+                endIcon='cancel' 
+            />
+            <Banner />
             <View style={styles.container}>
                 {users.map(user =>( <Card key={user.id} item={user} /> ))}
             </View>

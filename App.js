@@ -6,6 +6,7 @@ import { NavigationContainer } from '@react-navigation/native';
 
 import AuthNavigation from './app/Navigation/AuthNavigation';
 import InfluencerScreen from './app/Screens/InfluencerScreen';
+import TabNavigation from './app/Navigation/TabNavigation';
 
 export default function App() {
   return (
@@ -19,12 +20,13 @@ export default function App() {
 
     //   <RegisterScreen />
     // </View>
-    <View>
-       <InfluencerScreen />
-    </View>
-    // <NavigationContainer>
-    //   <AuthNavigation />
-    // </NavigationContainer>
+    // <View>
+    //    <InfluencerScreen />
+    // </View>
+    <NavigationContainer>
+      {/* <AuthNavigation /> */}
+      <TabNavigation />
+    </NavigationContainer>
 
   );
 }

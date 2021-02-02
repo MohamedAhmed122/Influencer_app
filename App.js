@@ -1,12 +1,10 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
-import AppButton from './app/Common/AppButton';
-import AppInput from './app/Common/AppInput';
-import AppText from './app/Common/AppText';
-import LoginScreen from './app/Screens/LoginScreen';
-import RegisterScreen from './app/Screens/RegisterScreen';
-import WelcomeScreen from './app/Screens/WelcomeScreen';
+
+import { StyleSheet } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+
+import AuthNavigation from './app/Navigation/AuthNavigation';
 
 export default function App() {
   return (
@@ -16,10 +14,14 @@ export default function App() {
     //   <AppButton inverted title='new button' />
     //   <StatusBar style="auto" />
     // </View>
-    <View>
+    // <View>
 
-      <RegisterScreen />
-    </View>
+    //   <RegisterScreen />
+    // </View>
+    <NavigationContainer>
+      <AuthNavigation />
+    </NavigationContainer>
+
   );
 }
 

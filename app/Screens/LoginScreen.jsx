@@ -7,7 +7,7 @@ import Constants from "expo-constants";
 import AppForm from '../Components/Form/AppForm'
 import AppFormField from '../Components/Form/AppFormField'
 import SubmitButton from '../Components/Form/SubmitButton'
-import { white } from '../config/colors'
+import { primary, white } from '../config/colors'
 
 const validationSchema = Yup.object().shape({
     email: Yup.string().required().email().label('Email') ,
@@ -17,6 +17,9 @@ const validationSchema = Yup.object().shape({
 export default function LoginScreen() {
     return (
         <View style={styles.screen}>
+            <View style={styles.logo}>
+                <Text style={styles.text}>Logo</Text>
+            </View>
             <View style={styles.login}>
                 <AppForm
                     initialValues={{email: '', password:''}}
@@ -57,5 +60,13 @@ const styles = StyleSheet.create({
     },
     login:{
         top: '35%'
+    },
+    logo :{
+        top: '20%',
+        alignItems:'center'
+    },
+    text:{
+        fontSize: 40,
+        color: primary
     }
 })

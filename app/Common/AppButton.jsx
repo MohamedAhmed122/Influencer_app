@@ -1,9 +1,9 @@
 import React from 'react'
 import { StyleSheet, Text, TouchableOpacity, } from 'react-native'
-
+import { AntDesign } from '@expo/vector-icons';
 import { primary, white } from '../config/colors'
 
-export default function AppButton({inverted, title, onPress , color= primary}) {
+export default function AppButton({inverted, title,icon, onPress , color= primary}) {
     return (
         <TouchableOpacity 
            onPress={onPress} 
@@ -14,6 +14,7 @@ export default function AppButton({inverted, title, onPress , color= primary}) {
             <Text style={inverted ? styles.smallText : styles.text}>
                 {title}
             </Text>
+         {icon &&   <AntDesign name={icon} size={24} color="white" />}
         </TouchableOpacity>
     )
 }
@@ -31,18 +32,20 @@ const styles = StyleSheet.create({
     },
     smallContainer:{
         backgroundColor: primary,
-        paddingVertical: 10,
+        paddingVertical: 13,
         paddingHorizontal: 17,
         borderRadius:30,
         display:"flex",
         alignItems:'center',
         justifyContent:'center',
         marginTop:15,
-        alignSelf:'center'
+        alignSelf:'center',
+        flexDirection:'row'
     },
     smallText:{
         fontSize:16,
         color: white,
+        marginRight: 10,
     },
     text:{
         fontSize:18,

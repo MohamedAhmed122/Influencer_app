@@ -2,15 +2,16 @@ import React, {useState} from 'react'
 import { StyleSheet, Text, View } from 'react-native'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import InfluencerScreen from '../Screens/InfluencerScreen';
-import { EvilIcons } from '@expo/vector-icons';
 import { Feather } from '@expo/vector-icons';
 import AccountScreen from '../Screens/AccountScreen';
 import FavoriteScreen from '../Screens/FavoriteScreen';
 import { primary } from '../config/colors';
+import AuthNavigation from './AuthNavigation';
+import { AntDesign } from '@expo/vector-icons';
 
 const Tab = createBottomTabNavigator()
 export default function TabNavigation() {
-    const [open, isOpen] =  useState(true)
+    const [open, isOpen] =  useState(false)
     return (
         <Tab.Navigator
             tabBarOptions={{
@@ -49,11 +50,11 @@ export default function TabNavigation() {
                 />   
             }
              <Tab.Screen 
-                component={AccountScreen} 
+                component={AuthNavigation} 
                 name='Account'
                 options={{
                     tabBarIcon :({color, size})=>(
-                        <Feather name="settings" size={size} color={color} />
+                        <AntDesign name="login" size={size} color={color} />
                     )
                 }}
             />

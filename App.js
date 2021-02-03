@@ -1,13 +1,12 @@
-import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 
 import { StyleSheet, View } from 'react-native';
+import { Provider } from 'react-redux'
 import { NavigationContainer } from '@react-navigation/native';
-
-import AuthNavigation from './app/Navigation/AuthNavigation';
-import InfluencerScreen from './app/Screens/InfluencerScreen';
 import TabNavigation from './app/Navigation/TabNavigation';
-import InfluencerDetailScreen from './app/Screens/InfluencerDetailScreen';
+
+import { store } from './app/Redux/Store'
+
 
 export default function App() {
   return (
@@ -24,10 +23,13 @@ export default function App() {
     // <View>
     //    <InfluencerDetailScreen />
     // </View>
-    <NavigationContainer>
-      {/* <AuthNavigation /> */}
-      <TabNavigation />
-    </NavigationContainer>
+    <Provider store={store}>
+      <NavigationContainer>
+        {/* <AuthNavigation /> */}
+        <TabNavigation />
+      </NavigationContainer>
+
+    </Provider>
 
   );
 }

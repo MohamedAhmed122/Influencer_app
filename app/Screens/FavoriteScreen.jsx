@@ -7,7 +7,6 @@ export default function FavoriteScreen() {
     return (
         <ScrollView style={styles.screen}>
            <CartRow />
-          
         </ScrollView>
     )
 }

@@ -1,17 +1,28 @@
 import React from 'react'
 import { ScrollView, StyleSheet,Image,Dimensions, Text, View, } from 'react-native';
-import Constants from "expo-constants";
-import AppText from '../Common/AppText'
-import AppButton from '../Common/AppButton'
 import {  primary, secondary } from '../config/colors';
+
+import { useDispatch } from 'react-redux'
+import { addItemToCart } from '../Redux/cart/cartAction'
+
+import Constants from "expo-constants";
+
+import AppText from '../Common/AppText'
 import SmallCard from '../Components/Card/SmallCard';
 import AppBadge from '../Common/AppBadge';
+import AppButton from '../Common/AppButton'
 
 const { width } = Dimensions.get('window')
 
-export default function InfluencerDetailScreen({route}) {
+export default function InfluencerDetailScreen({route, navigation }) {
+
     const user = route.params
-    const imageHolder ='http://eswarhospitals.com/wp-content/uploads/2020/04/blank-profile-picture-973460_640.png'
+    const dispatch = useDispatch()
+
+    const handleAddToFavorite = () =>{
+        dispatch(addItemToCart(user))
+        navigation.navigate('My Favorite')
+    }
 
     return (
         <ScrollView style={styles.screen}>
@@ -38,7 +49,12 @@ export default function InfluencerDetailScreen({route}) {
                 numbers='100.3K' />
             <View style={styles.flexCenter}>
                 <AppButton icon='message1' inverted color={primary} title='Send Message'/>
-                <AppButton icon='hearto' inverted color={secondary} title='Add Favorite'/>
+                <AppButton 
+                    icon='hearto' 
+                    inverted 
+                    color={secondary} 
+                    title='Add Favorite'
+                    onPress={handleAddToFavorite}/>
             </View>
             <AppText style={styles.mainText}>About {user.name}</AppText>
             <Text style={styles.smallText}>{user.description}</Text>
@@ -60,6 +76,8 @@ export default function InfluencerDetailScreen({route}) {
                 
     )
 }
+
+const imageHolder ='http://eswarhospitals.com/wp-content/uploads/2020/04/blank-profile-picture-973460_640.png'
 
 const styles = StyleSheet.create({
     screen:{

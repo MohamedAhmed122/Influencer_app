@@ -3,7 +3,7 @@ import { ScrollView, StyleSheet,Image,Dimensions, Text, View, } from 'react-nati
 import Constants from "expo-constants";
 import AppText from '../Common/AppText'
 import AppButton from '../Common/AppButton'
-import { orange, primary, secondary } from '../config/colors';
+import {  primary, secondary } from '../config/colors';
 import SmallCard from '../Components/Card/SmallCard';
 import AppBadge from '../Common/AppBadge';
 

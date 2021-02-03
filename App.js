@@ -21,13 +21,13 @@ export default function App() {
 
     //   <RegisterScreen />
     // </View>
-    <View>
-       <InfluencerDetailScreen />
-    </View>
-    // <NavigationContainer>
-    //   {/* <AuthNavigation /> */}
-    //   <TabNavigation />
-    // </NavigationContainer>
+    // <View>
+    //    <InfluencerDetailScreen />
+    // </View>
+    <NavigationContainer>
+      {/* <AuthNavigation /> */}
+      <TabNavigation />
+    </NavigationContainer>
 
   );
 }

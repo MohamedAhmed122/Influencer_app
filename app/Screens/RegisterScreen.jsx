@@ -1,5 +1,5 @@
 import React from 'react'
-import { StyleSheet, Text, View } from 'react-native'
+import { ScrollView, StyleSheet, Text, View } from 'react-native'
 
 import * as Yup from 'yup'
 import Constants from "expo-constants";
@@ -19,7 +19,7 @@ const validationSchema = Yup.object().shape({
 
 export default function RegisterScreen() {
     return (
-        <View style={styles.screen}>
+        <ScrollView style={styles.screen}>
             <View style={styles.logo}>
                 <Text style={styles.text}>LOGO</Text>
             </View>
@@ -69,7 +69,8 @@ export default function RegisterScreen() {
                     <SubmitButton title='Register' color={secondary} />
                 </AppForm>
             </View>
-        </View>
+            <View style={{margin: 100,}}></View>
+        </ScrollView>
     )
 }
 
@@ -84,7 +85,7 @@ const styles = StyleSheet.create({
         top: '20%'
     },
     logo :{
-        top: '10%',
+        top: '15%',
         alignItems:'center'
     },
     text:{

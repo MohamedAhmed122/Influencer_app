@@ -7,7 +7,7 @@ import {  primary, secondary,  } from '../../config/colors'
 
 const { width } = Dimensions.get('window')
 
-export default function Card({item}) {
+export default function Card({item, onPress}) {
     const {name, followers, price, image } = item;
     const imageHolder ='http://eswarhospitals.com/wp-content/uploads/2020/04/blank-profile-picture-973460_640.png'
     return (
@@ -23,7 +23,7 @@ export default function Card({item}) {
                   {name.length > 15 ? name.substring(0, 15-3)+ '...' : name}
                 </AppText>
               <Text style={styles.price} >{price} EGP</Text>
-              <AppButton inverted title='View Profile' color={secondary}  />
+              <AppButton onPress={onPress} inverted title='View Profile' color={secondary}  />
           </View>
         </TouchableOpacity>
 

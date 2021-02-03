@@ -8,7 +8,7 @@ import AppInput from '../Common/AppInput'
 import Banner from '../Components/Banner/Banner'
 
 
-export default function InfluencerScreen() {
+export default function InfluencerScreen({navigation}) {
     return (
         <ScrollView style={styles.screen}>
             <AppInput 
@@ -18,7 +18,8 @@ export default function InfluencerScreen() {
             />
             <Banner />
             <View style={styles.container}>
-                {users.map(user =>( <Card key={user.id} item={user} /> ))}
+                {users.map(user =>( 
+                <Card onPress={()=>navigation.navigate('Influencer Details', user)} key={user.id} item={user} /> ))}
             </View>
         </ScrollView>
     )

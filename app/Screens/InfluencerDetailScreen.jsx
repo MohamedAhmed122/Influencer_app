@@ -9,16 +9,16 @@ import AppBadge from '../Common/AppBadge';
 
 const { width } = Dimensions.get('window')
 
-export default function InfluencerDetailScreen() {
-
+export default function InfluencerDetailScreen({route}) {
+    const user = route.params
     const imageHolder ='http://eswarhospitals.com/wp-content/uploads/2020/04/blank-profile-picture-973460_640.png'
 
     return (
         <ScrollView style={styles.screen}>
-            <Image  style={styles.img} source={{uri : imageHolder}} />
+            <Image resizeMode='cover'  style={styles.img} source={{uri : user.image ||imageHolder}} />
             <View style={styles.flex}>
-                 <AppText style={styles.name}>Mohamed Youssef</AppText>
-                <AppText style={styles.price}>500 EGP</AppText>
+                 <AppText style={styles.name}>{user.name}</AppText>
+                <AppText style={styles.price}>{user.price} EGP</AppText>
             </View>
            
             <SmallCard 
@@ -40,10 +40,8 @@ export default function InfluencerDetailScreen() {
                 <AppButton icon='message1' inverted color={primary} title='Send Message'/>
                 <AppButton icon='hearto' inverted color={secondary} title='Add Favorite'/>
             </View>
-            <AppText style={styles.mainText}>About Mohamed Youssef</AppText>
-            <Text style={styles.smallText}>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Impedit fugiat ipsum eius laborum dolores magnam debitis deserunt! 
-            </Text>
+            <AppText style={styles.mainText}>About {user.name}</AppText>
+            <Text style={styles.smallText}>{user.description}</Text>
             <AppText style={styles.mainText}>Category</AppText>
             <View style={styles.category}>
                <AppBadge inverted color='#dbeeff' title='sport'/>
@@ -70,8 +68,9 @@ const styles = StyleSheet.create({
         paddingTop: Constants.statusBarHeight,
     },
     img:{
+        marginTop: -44,
         width: width,
-        height: width,
+        height: width - 30,
     },
     flex:{
         display:'flex',

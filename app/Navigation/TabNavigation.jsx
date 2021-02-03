@@ -8,6 +8,7 @@ import FavoriteScreen from '../Screens/FavoriteScreen';
 import { primary } from '../config/colors';
 import AuthNavigation from './AuthNavigation';
 import { AntDesign } from '@expo/vector-icons';
+import InfluencerNavigation from './InfluencerNavigation';
 
 const Tab = createBottomTabNavigator()
 export default function TabNavigation() {
@@ -20,8 +21,8 @@ export default function TabNavigation() {
             }}
         >
             <Tab.Screen 
-                component={InfluencerScreen} 
-                name='Influencer'
+                component={InfluencerNavigation} 
+                name='Influencers'
                 options={{
                     tabBarIcon :({color, size})=>(
                         <Feather name="user" size={size} color={color} />

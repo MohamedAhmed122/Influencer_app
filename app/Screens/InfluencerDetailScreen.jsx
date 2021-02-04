@@ -1,12 +1,12 @@
 import React from 'react'
-import { ScrollView, StyleSheet,Image,Dimensions, Text, View, } from 'react-native';
+import { ScrollView, StyleSheet,Image,Dimensions, Text, View, TouchableOpacity, } from 'react-native';
 import {  primary, secondary } from '../config/colors';
 
 import { useDispatch } from 'react-redux'
 import { addItemToCart } from '../Redux/cart/cartAction'
 
 import Constants from "expo-constants";
-
+import { Feather } from '@expo/vector-icons';
 import AppText from '../Common/AppText'
 import SmallCard from '../Components/Card/SmallCard';
 import AppBadge from '../Common/AppBadge';
@@ -27,6 +27,9 @@ export default function InfluencerDetailScreen({route, navigation }) {
     return (
         <ScrollView style={styles.screen}>
             <Image resizeMode='cover'  style={styles.img} source={{uri : user.image ||imageHolder}} />
+            <TouchableOpacity onPress={()=>navigation.navigate('Create Profile')} style={styles.container}>
+                <Feather name="edit" size={24} color="white" />
+            </TouchableOpacity>
             <View style={styles.flex}>
                  <AppText style={styles.name}>{user.name}</AppText>
                 <AppText style={styles.price}>{user.price} EGP</AppText>
@@ -48,7 +51,12 @@ export default function InfluencerDetailScreen({route, navigation }) {
                 email='@mohamed_youssef' 
                 numbers='100.3K' />
             <View style={styles.flexCenter}>
-                <AppButton icon='message1' inverted color={primary} title='Send Message'/>
+                <AppButton 
+                    icon='message1' 
+                    inverted 
+                    color={primary} 
+                    onPress={()=>navigation.navigate('Chat')}
+                    title='Send Message'/>
                 <AppButton 
                     icon='hearto' 
                     inverted 
@@ -60,8 +68,6 @@ export default function InfluencerDetailScreen({route, navigation }) {
             <Text style={styles.smallText}>{user.description}</Text>
             <AppText style={styles.mainText}>Category</AppText>
             <View style={styles.category}>
-               <AppBadge inverted color='#dbeeff' title='sport'/>
-               <AppBadge inverted color='#dbeeff' title='sport'/>
                <AppBadge inverted color='#dbeeff' title='sport'/>
                <AppBadge inverted color='#dbeeff' title='sport'/>
                <AppBadge inverted color='#dbeeff' title='sport'/>
@@ -97,6 +103,14 @@ const styles = StyleSheet.create({
         alignItems:'center',
         margin:15,
     },
+    container:{
+        backgroundColor: primary,
+        position:'absolute',
+        padding: 15,
+        borderRadius: 30,
+        top: width -105,
+        left: '83%',
+    },
     name:{
         fontWeight:'bold',
         color:primary,
@@ -104,6 +118,7 @@ const styles = StyleSheet.create({
     },
     price:{
         fontWeight:'bold',
+        marginTop: 15,
         color: secondary
     },
     mainText:{

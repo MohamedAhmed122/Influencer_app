@@ -11,6 +11,7 @@ const AppInput = ({
     onChangeText, 
     endIcon,
     onIconPress,
+    endColorIcon ='gray',
     onFocus,
     ...otherProps}) => {
     
@@ -24,7 +25,7 @@ const AppInput = ({
                 placeholder={placeholder}
                 {...otherProps} 
             />
-           {endIcon &&  <MaterialIcons name='cancel' size={24} color="gray" onPress={onIconPress} />}
+           {endIcon &&  <MaterialIcons name={endIcon} size={24} color={endColorIcon} onPress={onIconPress} />}
         </View>
     )
 }
@@ -43,6 +44,7 @@ const styles = StyleSheet.create({
         flexDirection:'row',
         alignItems:'center',
         marginTop:20,
+        marginBottom: 13,
     },
     inputText:{
         backgroundColor:'transparent',
@@ -52,5 +54,6 @@ const styles = StyleSheet.create({
         color: black,
         fontSize:17,
         flex:1,
+        
     }
 })

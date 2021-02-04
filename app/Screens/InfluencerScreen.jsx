@@ -21,6 +21,7 @@ export default function InfluencerScreen({navigation}) {
                 {users.map(user =>( 
                 <Card onPress={()=>navigation.navigate('Influencer Details', user)} key={user.id} item={user} /> ))}
             </View>
+            <View style={{margin: 20,}}></View>
         </ScrollView>
     )
 }

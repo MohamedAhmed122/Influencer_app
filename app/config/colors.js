@@ -19,4 +19,8 @@
 
   export const lightGray = '#dfdede';
 
-  export const gray = '#828282'
+  export const gray = '#828282';
+
+  export const chatColor ='#2d4671'
+
+  export const separatorColor ='rgba(190, 190, 190, 0.1)'

@@ -9,7 +9,7 @@ const { width } = Dimensions.get('window')
 
 export default function Card({item, onPress}) {
     const {name, followers, price, image } = item;
-    const imageHolder ='http://eswarhospitals.com/wp-content/uploads/2020/04/blank-profile-picture-973460_640.png'
+ 
     return (
         <View style={{width :'50%'}}> 
         <TouchableOpacity style={styles.container}>
@@ -30,6 +30,9 @@ export default function Card({item, onPress}) {
         </View>
     )
 }
+
+const imageHolder ='http://eswarhospitals.com/wp-content/uploads/2020/04/blank-profile-picture-973460_640.png'
+
 
 const styles = StyleSheet.create({
     container:{

@@ -9,6 +9,7 @@ import { primary } from '../config/colors';
 import AuthNavigation from './AuthNavigation';
 import { AntDesign } from '@expo/vector-icons';
 import InfluencerNavigation from './InfluencerNavigation';
+import ChatScreen from '../Screens/ChatScreen';
 
 const Tab = createBottomTabNavigator()
 export default function TabNavigation() {
@@ -39,13 +40,13 @@ export default function TabNavigation() {
                 }}
             />
             {
-                open &&
+                !open &&
                 <Tab.Screen 
-                    component={AccountScreen} 
-                    name='Accounts'
+                    component={ChatScreen} 
+                    name='Chat'
                     options={{
                         tabBarIcon :({color, size})=>(
-                            <Feather name="message-circle" size={size} color={color} />
+                            <AntDesign name="message1" size={size} color={color} />
                         )
                     }}
                 />   

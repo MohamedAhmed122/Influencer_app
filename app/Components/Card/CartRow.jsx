@@ -3,6 +3,7 @@ import { StyleSheet, Text, Image, TouchableOpacity, View,Dimensions } from 'reac
 import { AntDesign } from '@expo/vector-icons';
 import {danger, lightGray, primary, secondary} from '../../config/colors'
 
+import { useNavigation } from '@react-navigation/native';
 import { useDispatch } from 'react-redux';
 
 import AppText from '../../Common/AppText'
@@ -14,14 +15,14 @@ const { width } = Dimensions.get('window')
 
 export default function CartRow({user}) {
 
+    const navigation = useNavigation()
     const dispatch = useDispatch()
 
-    const handleRemove = () =>
-        dispatch(removeItemCart(user.id))
+    const handleRemove = () => dispatch(removeItemCart(user.id))
 
 
     return (
-        <TouchableOpacity style={styles.container}>
+        <TouchableOpacity onPress={()=>navigation.navigate('Influencer Details', user)} style={styles.container}>
            <Image  style={styles.image} source={{uri: user.image || imageHolder}} resizeMode='cover'/>
            <View style={styles.flex}>
                 <View style={styles.textContainer}>
@@ -51,7 +52,7 @@ const styles = StyleSheet.create({
         width: '80%',
         height: width/2 + 60,
         marginLeft: '10%',
-        backgroundColor: lightGray,
+        backgroundColor: '#eaeaea',
         borderRadius: 25,
         
 

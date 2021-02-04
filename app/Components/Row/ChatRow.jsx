@@ -4,10 +4,10 @@ import { TouchableOpacity } from 'react-native-gesture-handler'
 import AppText from '../../Common/AppText'
 import { gray, white } from '../../config/colors'
 
-export default function ChatRow({items}) {
+export default function ChatRow({items, onPress}) {
 
     return (
-        <TouchableOpacity style={styles.MainContainer}>
+        <TouchableOpacity onPress={onPress} style={styles.MainContainer}>
             <View style={styles.flex}>
                 <Image source={{uri : items.image || imageHolder}} resizeMode='cover' style={styles.img} />
                 <View>

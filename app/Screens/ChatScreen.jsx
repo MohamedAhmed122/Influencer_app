@@ -18,7 +18,7 @@ export default function ChatScreen({navigation}) {
                 data={items}
                 keyExtractor={(items)=> items.id.toString()}
                 renderItem={({item})=> (
-                    <ChatRow items ={item} />
+                    <ChatRow items ={item} onPress={()=>navigation.navigate('Channel', item)}/>
                 )}
                 ItemSeparatorComponent={() => <AppSeparator  color={separatorColor}/>}
             />

@@ -9,11 +9,14 @@ import AppFormField from '../Components/Form/AppFormField'
 import SubmitButton from '../Components/Form/SubmitButton'
 import AppText from '../Common/AppText'
 import { primary, white } from '../config/colors'
+import AppFormPicker from '../Components/Form/AppFormPicker';
+import { citiesData } from '../API/options';
+
 
 const validationSchema = Yup.object().shape({
     name:Yup.string().required().label('Name') ,
     phone: Yup.string().required().label('Phone') ,
-    city: Yup.string().required().label('City') ,
+    // city: Yup.string().required().label('City') ,
     price: Yup.string().required().label('Price') ,
     bio: Yup.string().required().label('Bio') ,
     
@@ -28,7 +31,8 @@ export default function CreateProfileScreen() {
                         name: '', phone:'', city: '',price: '',
                         instagramAccount: '', facebookAccount:'',
                         bio:'', friend:'', follower:'',
-                        subscriber:'', youtubeAccount :""
+                        subscriber:'', youtubeAccount :"",
+                        category: []
                     }}
                     validationSchema={validationSchema}
                     onSubmit={(values)=> console.log(values)}
@@ -37,7 +41,7 @@ export default function CreateProfileScreen() {
                     <AppFormField icon='person' name='name' placeholder='Name'/>
                     <AppFormField icon='phone' placeholder='Phone Number' name='phone'/>
                     <AppFormField icon='description' placeholder='Bio' name='bio'/>
-                    <AppFormField icon='add-location' placeholder='City' name='city' />
+                    <AppFormPicker items={citiesData} icon='location-pin' placeholder='City' name='city' />
                     <AppFormField icon='money' placeholder='Price' name='price' />
                     <AppText style={styles.text}>Information about your facebook account</AppText>
                     <AppFormField icon='facebook' placeholder='Facebook Account' name='facebookAccount'/>
@@ -54,6 +58,7 @@ export default function CreateProfileScreen() {
             </View>
             <View style={{margin: 100,}}></View>
         </ScrollView>
+  
     )
 }
 

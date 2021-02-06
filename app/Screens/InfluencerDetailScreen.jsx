@@ -55,7 +55,7 @@ export default function InfluencerDetailScreen({route, navigation }) {
                     icon='message1' 
                     inverted 
                     color={primary} 
-                    onPress={()=>navigation.navigate('Chat')}
+                    onPress={()=>navigation.navigate('Chats')}
                     title='Send Message'/>
                 <AppButton 
                     icon='hearto' 

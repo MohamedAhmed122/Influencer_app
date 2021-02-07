@@ -1,5 +1,5 @@
 import React from 'react'
-import { ScrollView, StyleSheet, Text, View } from 'react-native'
+import { ScrollView, StyleSheet, View } from 'react-native'
 
 import * as Yup from 'yup'
 import Constants from "expo-constants";
@@ -12,6 +12,10 @@ import { primary, white } from '../config/colors'
 import AppFormPicker from '../Components/Form/AppFormPicker';
 import { citiesData } from '../API/options';
 
+import ImagePicker from '../Components/ImagePacker/ImagePicker';
+import MultiSelectForm from '../Components/Form/MultiSelectForm';
+import MultiSelectInput from '../Components/MultiSelectInput/MultiSelectInput';
+
 
 const validationSchema = Yup.object().shape({
     name:Yup.string().required().label('Name') ,
@@ -19,6 +23,7 @@ const validationSchema = Yup.object().shape({
     // city: Yup.string().required().label('City') ,
     price: Yup.string().required().label('Price') ,
     bio: Yup.string().required().label('Bio') ,
+    category: Yup.array().required().of(Yup.string().required())
     
 });
 
@@ -37,12 +42,14 @@ export default function CreateProfileScreen() {
                     validationSchema={validationSchema}
                     onSubmit={(values)=> console.log(values)}
                 >
-                    <AppText style={styles.text}>Insert some information about you</AppText>
+                    <ImagePicker />
                     <AppFormField icon='person' name='name' placeholder='Name'/>
                     <AppFormField icon='phone' placeholder='Phone Number' name='phone'/>
                     <AppFormField icon='description' placeholder='Bio' name='bio'/>
                     <AppFormPicker items={citiesData} icon='location-pin' placeholder='City' name='city' />
                     <AppFormField icon='money' placeholder='Price' name='price' />
+                    <MultiSelectForm name='category' />
+                    {/* <MultiSelectInput /> */}
                     <AppText style={styles.text}>Information about your facebook account</AppText>
                     <AppFormField icon='facebook' placeholder='Facebook Account' name='facebookAccount'/>
                     <AppFormField icon='supervisor-account' placeholder='How many friend on facebook?' name='friend'/>
